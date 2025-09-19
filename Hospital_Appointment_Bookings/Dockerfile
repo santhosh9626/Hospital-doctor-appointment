@@ -1,14 +1,14 @@
-# Use a lightweight JDK base image
-FROM eclipse-temurin:17-jdk-alpine
+# Use OpenJDK base image
+FROM openjdk:17-jdk-slim
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy Maven wrapper & source
+# Copy project files
 COPY . .
 
-# Build the application using Maven
+# Build application
 RUN ./mvnw clean package -DskipTests
 
-# Run the application
-CMD ["java", "-jar", "target/task1-0.0.1-SNAPSHOT.jar"]
+# Run the JAR file
+CMD ["java", "-jar", "target/hospital-appointment-0.0.1-SNAPSHOT.jar"]
