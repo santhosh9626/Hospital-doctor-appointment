@@ -1,14 +1,19 @@
-# Use OpenJDK base image
-FROM openjdk:17-jdk-slim
-
-# Set working directory
+# ---------- Build Stage ----------
+FROM maven:3.9.9-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # Copy project files
 COPY . .
 
-# Build application
-RUN ./mvnw clean package -DskipTests
+# Build the application
+RUN mvn clean package -DskipTests
 
-# Run the JAR file
-CMD ["java", "-jar", "target/hospital-appointment-0.0.1-SNAPSHOT.jar"]
+# ---------- Run Stage ----------
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+
+# Copy only the JAR from the build stage
+COPY --from=build /app/target/*.jar app.jar
+
+# Run the JAR
+CMD ["java", "-jar", "app.jar"]
