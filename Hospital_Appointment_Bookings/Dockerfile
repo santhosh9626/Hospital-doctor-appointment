@@ -2,8 +2,8 @@
 FROM maven:3.9.9-eclipse-temurin-17 AS build
 WORKDIR /app
 
-# Copy project files
-COPY . .
+# Copy only the subfolder that contains pom.xml
+COPY Hospital_Appointment_Booking /app
 
 # Build the application
 RUN mvn clean package -DskipTests
