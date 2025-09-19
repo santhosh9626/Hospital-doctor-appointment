@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Appointment Booking</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    nav {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+
+    nav h2 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #caf0f8;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('https://img.freepik.com/free-photo/doctor-with-stethoscope-hands-hospital-background_1421-29.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #6a11cb;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .hero a:hover {
+      background: #2575fc;
+    }
+
+    /* Features Section */
+    .features {
+      display: flex;
+      justify-content: space-around;
+      padding: 50px 20px;
+      background: white;
+    }
+
+    .feature {
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .feature i {
+      font-size: 40px;
+      color: #6a11cb;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    .social a {
+      margin: 0 10px;
+      color: white;
+      font-size: 25px;
+      transition: color 0.3s;
+    }
+
+    .social a:hover {
+      color: #90e0ef;
+    }
+
+    .copyright {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h2>🏥 Kovai Hospital</h2>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/doctors">Book Appointment</a></li>
+      <li><a href="/appointments">Appointments</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Hospital Appointment Booking</h1>
+    <p>Book your doctor appointment easily and quickly.</p>
+    <a href="/doctors">Book Now</a>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="feature">
+      <i class='bx bx-user'></i>
+      <h3>For Patients</h3>
+      <p>Book appointments online with your preferred doctor.</p>
+    </div>
+    <div class="feature">
+      <i class='bx bx-plus-medical'></i>
+      <h3>For Doctors</h3>
+      <p>Manage appointments and confirm patient visits.</p>
+    </div>
+    <div class="feature">
+      <i class='bx bx-cog'></i>
+      <h3>Admin Panel</h3>
+      <p>Admins can manage doctors, patients, and appointments.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="social">
+      <a href="https://www.instagram.com" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class='bx bxl-facebook-square'></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Kovai Hospital - All Rights Reserved
+    </p>
+  </footer>
+
+</body>
+</html>

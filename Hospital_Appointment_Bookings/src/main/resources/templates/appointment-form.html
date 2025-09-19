@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment</title>
+  <!-- Boxicons for social icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <style>
+    /* Make footer stick */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    /* Page Header */
+    h2 {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(90deg, #6a11cb, #2575fc); /* Purple + Blue */
+      color: white;
+      margin: 0;
+      font-size: 26px;
+    }
+
+    /* Form Container */
+    .form-container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      flex: 1; /* Push footer to bottom */
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border 0.3s;
+    }
+
+    .form-container input:focus {
+      border-color: #2575fc;
+      outline: none;
+    }
+
+    /* Button */
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .form-container button:hover {
+      opacity: 0.9;
+    }
+
+    /* Home link */
+    .home-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .home-link a {
+      text-decoration: none;
+      color: #2575fc;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .home-link a:hover {
+      color: #6a11cb;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .social a {
+      margin: 0 10px;
+      color: #ffd166; /* yellow */
+      font-size: 25px;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    .social a:hover {
+      color: #ff6f61;
+      transform: scale(1.1);
+    }
+
+    .copyright {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Book Appointment with <span th:text="${doctor.name}">Doctor</span></h2>
+
+  <div class="form-container">
+    <form th:action="@{/appointments/save/{id}(id=${doctor.id})}" th:object="${patient}" method="post">
+      <label>Name:</label>
+      <input type="text" th:field="*{name}" required/>
+
+      <label>Email:</label>
+      <input type="email" th:field="*{email}" required/>
+
+      <label>Date:</label>
+      <input type="date" name="date" required/>
+
+      <button type="submit">Book Appointment</button>
+    </form>
+  </div>
+
+  <div class="home-link">
+    <a href="/home">← Back to Home</a>
+  </div>
+
+  <footer id="contact">
+    <div class="social">
+      <a href="https://instagram.com" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+      <a href="https://facebook.com" target="_blank"><i class='bx bxl-facebook-square'></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 My Hospital - All Rights Reserved
+    </p>
+  </footer>
+
+</body>
+</html>

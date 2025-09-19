@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctors</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f5fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+
+      /* Footer stick at bottom */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1; /* Push footer down */
+    }
+
+    /* Header */
+    h2 {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(90deg, #5a189a, #7b2cbf, #9d4edd);
+      color: white;
+      margin: 0;
+      font-size: 28px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Doctors list */
+    ul {
+      list-style: none;
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    ul li {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    ul li:hover {
+      transform: translateY(-6px);
+      background: #f1f0ff; /* soft violet */
+    }
+
+    ul li b {
+      font-size: 18px;
+      color: #5a189a;
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    ul li i {
+      font-size: 15px;
+      color: #444;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    /* Button */
+    ul li a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #3a86ff;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 25px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    ul li a:hover {
+      background: #265df2;
+      transform: scale(1.05);
+    }
+
+    /* Home link */
+    .home-link {
+      display: block;
+      text-align: center;
+      margin: 25px;
+    }
+
+    .home-link a {
+      text-decoration: none;
+      color: #5a189a;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .home-link a:hover {
+      color: #9d4edd;
+    }
+
+    /* Footer */
+    footer {
+      background: #2b2d42;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: auto; /* keeps footer at bottom */
+    }
+
+    .social a {
+      margin: 0 12px;
+      color: #3a86ff;
+      font-size: 26px;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    .social a:hover {
+      color: #fcbf49;
+      transform: rotate(10deg);
+    }
+
+    .copyright {
+      margin-top: 10px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h2>Available Doctors</h2>
+
+    <ul>
+      <li th:each="doc : ${doc}">
+        <b th:text="${doc.name}">Doctor Name</b>
+        <i th:text="${doc.specialization}">Specialization</i>
+        <a th:href="@{/appointments/new/{id}(id=${doc.id})}">Book Appointment</a>
+      </li>
+    </ul>
+
+    <div class="home-link">
+      <a href="/home">← Back to Home</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="social">
+      <a href="https://instagram.com" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+      <a href="https://facebook.com" target="_blank"><i class='bx bxl-facebook-square'></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 CityCare Hospital - All Rights Reserved
+    </p>
+  </footer>
+
+</body>
+</html>
